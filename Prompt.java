@@ -71,6 +71,40 @@ public class Prompt {
 		}
 	}
 
+
+	/**
+	 * Faz a leitura de um caractere digitado no prompt de comandos e retorna no
+	 * formato ISO-8859-1 Latin ou UTF-8.
+	 * 
+	 * Vai retornar o caractere com espaço vazio " " se o valor digitado for inválido!
+	 * 
+	 * @return String
+	 */
+	public static char lerCaractere(String mensagem) {
+		imprimir(mensagem);
+		return lerCaractere();
+	}
+
+
+	/**
+	 * Faz a leitura de um caractere digitado no prompt de comandos e retorna no
+	 * formato ISO-8859-1 Latin ou UTF-8.
+	 * 
+	 * Vai retornar o caractere com espaço vazio " " se o valor digitado for inválido!
+	 * 
+	 * @return String
+	 */
+	public static char lerCaractere(){
+		char caractere = ' ';
+		try {
+			InputStreamReader isr = new InputStreamReader(System.in);
+			BufferedReader br = new BufferedReader(isr);
+			caractere = (char) br.read();
+		} catch (IOException e) {			
+		}
+		return caractere;
+	}
+
 	/**
 	 * Imprime a mensagem enviada, faz a leitura do número digitado no prompt de
 	 * comandos e retorna um int.
