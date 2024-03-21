@@ -5,7 +5,6 @@ a. Os elementos das posições pares de C são os elementos das posições pares
 b. Os elementos das posições ímpares de C são os elementos das posições ímpares de B;
  */
 
-import java.security.AlgorithmParameterGeneratorSpi;
 
 public class Exercicio09 {
     
@@ -14,13 +13,38 @@ public class Exercicio09 {
         int[] A = new int[5];
         int[] B = new int[5];
         int[] C = new int[5];
+        int contador = 0;
 
+        contador = Prompt.lerInteiro("Digite a quantidade de números que deseja: ");
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < contador; i++) {
             
-            A[i] = Prompt.lerInteiro("Digite um número: ");
-            B[i] = Prompt.lerInteiro("Digite um número: ");
+            
 
-        } 
+            A[i] = Prompt.lerInteiro("Digite o dígito de A: ");
+
+        }
+        
+        for (int i = 0; i < contador; i++) {
+
+            B[i] = Prompt.lerInteiro("Digite o dígito de B: ");
+        }
+
+        for (int i = 1; i < contador; i +=2) {
+            
+            C[i] = A[i];
+        }
+        for (int i = 0; i < contador; i +=2) {
+            
+            C[i] = B[i];
+        }
+
+        Prompt.imprimir("-----------------------------");
+
+        for (int j = 0; j < contador; j++) {
+            
+            Prompt.imprimir(C[j]);
+        }
+        
     }
 }
